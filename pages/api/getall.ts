@@ -1,9 +1,21 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { prisma } from '../../prisma/prisma';
+import { PrismaClient } from '@prisma/client';
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-    const ideas = await prisma.idea.findMany();
-    res.json(ideas);
+const prisma = new PrismaClient();
+
+type Data = {
+    id: string,
+    title: string,
+    description: string,
+    duration: string,
+    status: string,
 }
 
-export default handler;
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data[] | string>) {
+    if(req.method !== 'GET') {
+        res.status(400).json('Method not allowed.');
+    } else {
+        const ideas = await prisma.idea.findMany();
+        res.status(200).json(ideas);
+    }
+}

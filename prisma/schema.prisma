@@ -15,5 +15,5 @@ model idea {
   title String
   description String
   duration  String
-  complete  Boolean
+  status String
 }

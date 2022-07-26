@@ -8,7 +8,7 @@ const Form: NextPage = () => {
             title: event.target.title.value,
             description: event.target.description.value,
             duration: event.target.duration.value,
-            complete: false,
+            status: 'Not Started',
         }
     
         const options = {
@@ -48,10 +48,10 @@ const Form: NextPage = () => {
                     <select className="form-select appearance-none shadow w-full px-3 py-2 text-gray-700 bg-white bg-clip-padding bg-no-repeat leading-tight focus:shadow-outline border rounded transition ease-in-out focus:border-blue-600 focus:shadow-outline" 
                         id="duration">
                         <option selected>Duration</option>
-                        <option value="1">One Meeting</option>
-                        <option value="2">Multiple Meetings</option>
-                        <option value="3">One Semester</option>
-                        <option value="4">Multiple Semesters</option>
+                        <option value="One Meeting">One Meeting</option>
+                        <option value="Multiple Meetings">Multiple Meetings</option>
+                        <option value="One Semester">One Semester</option>
+                        <option value="Multiple Semesters">Multiple Semesters</option>
                     </select>
                 </div>
                 <div className="flex items-center justify-between">
