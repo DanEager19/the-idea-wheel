@@ -1,9 +1,32 @@
 import type {NextPage} from 'next'
 
 const Form: NextPage = () => {
+    const handleSubmit = async (event: any) => {
+        event.preventDefault()
+    
+        const data = {
+            title: event.target.title.value,
+            description: event.target.description.value,
+            duration: event.target.duration.value,
+            complete: false,
+        }
+    
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        }
+    
+        const response = await fetch('/api/create', options)
+    
+        const result = await response.json()
+        alert(`Is this your full name: ${result}`)
+    }
     return (
         <div className="w-full max-w-md bg-white shadow rounded">
-            <form className="px-8 pt-6 pb-8 mb-4">
+            <form className="px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
                         Title:

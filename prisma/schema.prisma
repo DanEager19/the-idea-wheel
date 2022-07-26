@@ -10,9 +10,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Idea {
+model idea {
   id  String  @id @default(auto()) @map("_id") @db.ObjectId
   title String
   description String
   duration  String
+  complete  Boolean
 }
