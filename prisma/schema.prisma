@@ -11,9 +11,9 @@ datasource db {
 }
 
 model idea {
-  id  String  @id @default(auto()) @map("_id") @db.ObjectId
-  title String
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
   description String
-  duration  String
-  status String
+  duration    String
+  status      String
 }

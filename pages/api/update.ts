@@ -16,10 +16,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 id: id
             },
             data: {
-                title, 
-                description, 
-                duration, 
-                status
+                title: title, 
+                description: description, 
+                duration: duration, 
+                status: status
             }
         });
         res.status(200).json(idea);
