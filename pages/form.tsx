@@ -22,7 +22,7 @@ const Form: NextPage = () => {
         const response = await fetch('/api/create', options)
     
         const result = await response.json()
-        alert(`Is this your full name: ${result}`)
+        window.location.reload();
     }
     return (
         <div className="w-full max-w-md bg-white shadow rounded">
